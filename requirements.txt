@@ -1,0 +1,1 @@
+Flask==0.10.1Flask-Cors==3.0.2Flask-Excel==0.0.7Flask-Login==0.2.5Flask-MongoAlchemy==0.5.4Flask-SQLAlchemy==0.16Flask-WTF==0.8.4xlrd==1.0.0XlsxWriter==0.9.6xlwings==0.10.4xlwt==1.2.0SQLAlchemy==1.1.9sqlalchemy-migrate==0.7.2Flask-SQLAlchemy==0.16python-dateutil==2.6.0
