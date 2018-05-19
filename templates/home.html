@@ -1,0 +1,123 @@
+<html>
+	<head>
+		<title>Excel Report</title>
+	</head>
+	<body>
+		<h1><i>MCO Results</i></h1>
+		<table border="1">
+			<tr>
+				<th style="background:blue">No of Days since last Multi Customer Outages for CMS</th>
+				<th style="background:blue">Days since Last MCO Happened</th>
+			</tr>
+			{% for result in age_results %}
+				<tr>
+					<td>Number of days since last MCO</td>
+					{% if result.age <= 30 %}
+						<td style="background:red">{{result.age}} days</td>
+					{% elif result.age <= 60 %}
+						<td style="background:yellow">{{result.age}} days</td>
+					{% elif result.age > 60 %}
+						<td style="background:green">{{result.age}} days</td>
+					{% endif %}
+				</tr>
+			{% endfor %}
+			{% for result in mco_results_network %}
+				<tr>
+					<td>Number of days since last Network related MCO (across all DC)</td>
+					{% if result.age <= 30 %}
+						<td style="background:red">{{result.age}} days</td>
+					{% elif result.age <= 60 %}
+						<td style="background:yellow">{{result.age}} days</td>
+					{% elif result.age > 60 %}
+						<td style="background:green">{{result.age}} days</td>
+					{% endif %}
+				</tr>
+			{% endfor %}
+			{% for result in mco_results_storage %}
+				<tr>
+					<td>Number of days since last Storage related MCO (across all DC)</td>
+					{% if result.age <= 30 %}
+						<td style="background:red">{{result.age}} days</td>
+					{% elif result.age <= 60 %}
+						<td style="background:yellow">{{result.age}} days</td>
+					{% elif result.age > 60 %}
+						<td style="background:green">{{result.age}} days</td>
+					{% endif %}
+				</tr>
+			{% endfor %}
+		</table>
+		<br>
+		<table border="1">
+			<tr>
+				<th style="background:blue">No of Days since last Multi Customer Outages SL-Infra ( Softlayer / Bluemix )</th>
+				<th style="background:blue">Days since Last MCO Happened</th>
+			</tr>
+			{% for result in mco_results_sl %}
+				<tr>
+					<td>Number of days since last MCO</td>
+					{% if result.age <= 30 %}
+						<td style="background:red">{{result.age}} days</td>
+					{% elif result.age <= 60 %}
+						<td style="background:yellow">{{result.age}} days</td>
+					{% elif result.age > 60 %}
+						<td style="background:green">{{result.age}} days</td>
+					{% endif %}
+				</tr>
+			{% endfor %}
+			{% for result in mco_results_sl_network %}
+				<tr>
+					<td>Number of days since last SL_Network related MCO (across all DC)</td>
+					{% if result.age <= 30 %}
+						<td style="background:red">{{result.age}} days</td>
+					{% elif result.age <= 60 %}
+						<td style="background:yellow">{{result.age}} days</td>
+					{% elif result.age > 60 %}
+						<td style="background:green">{{result.age}} days</td>
+					{% endif %}
+				</tr>
+			{% endfor %}
+		</table>
+		<br>
+		<table border="1">
+			<tr>
+				<th style="background:blue">No of Days since Last MCO by Compute Platform</th>
+				<th style="background:blue">Days since Last MCO Happened</th>
+			</tr>
+			{% for result in mco_results_1x %}
+				<tr>
+					<td>Last MCO with Compute issues for 1.x</td>
+					{% if result.age <= 30 %}
+						<td style="background:red">{{result.age}} days</td>
+					{% elif result.age <= 60 %}
+						<td style="background:yellow">{{result.age}} days</td>
+					{% elif result.age > 60 %}
+						<td style="background:green">{{result.age}} days</td>
+					{% endif %}
+				</tr>
+			{% endfor %}
+			{% for result in mco_results_3x %}
+				<tr>
+					<td>Last MCO with Compute issues for 3.x</td>
+					{% if result.age <= 30 %}
+						<td style="background:red">{{result.age}} days</td>
+					{% elif result.age <= 60 %}
+						<td style="background:yellow">{{result.age}} days</td>
+					{% elif result.age > 60 %}
+						<td style="background:green">{{result.age}} days</td>
+					{% endif %}
+				</tr>
+			{% endfor %}
+			{% for result in mco_results_2012 %}
+				<tr>
+					<td>Last MCO with Compute issues for 2012.1</td>
+					{% if result.age <= 30 %}
+						<td style="background:red">{{result.age}} days</td>
+					{% elif result.age <= 60 %}
+						<td style="background:yellow">{{result.age}} days</td>
+					{% elif result.age > 60 %}
+						<td style="background:green">{{result.age}} days</td>
+					{% endif %}
+				</tr>
+			{% endfor %}
+		</table>
+</html>
